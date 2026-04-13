@@ -14,21 +14,21 @@ spec:
     spec:
       containers:
         - name: book-service
-          image: book-service:4.0
+          image: book-service:1.0
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: log-volume
               mountPath: /logs
           ports:
-            - containerPort: 8080
-        - name: sidecar-service
-          image: sidecar-service:4.0
+            - containerPort: 8090
+        - name: log-service
+          image: log-service:1.0
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: log-volume
               mountPath: /logs
           ports:
-            - containerPort: 8081
+            - containerPort: 8091
       volumes:
         - name: log-volume
           emptyDir: {}
